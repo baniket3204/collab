@@ -17,7 +17,7 @@ export const Dashboard = () => {
   const handleClick = () => {
   console.log("han")
   allItems("files")
-  location.reload();
+  
   // setToogle(!toogle);
   // console.log("hell")
   // console.log(JSON.stringify( files ,  new Set(files.map((file) => file.name))))
