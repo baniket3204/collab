@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { auth, firestore } from './Firebase';
 import { addDoc, collection , doc, getDocs, limit, orderBy, query, serverTimestamp} from 'firebase/firestore';
-import { Chatmessage } from './ChatMessage';
+import { Chatmessage } from './Chatmessage';
 
 
 
