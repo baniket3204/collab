@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { allItems } from './Firebase'
-import { fetchData , filterFiles, findUniqueObjects, removeDuplicates } from './helpers'
+import { fetchData , filterFiles } from './helpers'
 import { BsFiletypePdf } from 'react-icons/bs';
 import { Modal } from './Modal';
 import { SearchBar } from './SearchBar';
