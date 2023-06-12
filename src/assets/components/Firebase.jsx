@@ -2,6 +2,10 @@ import { initializeApp } from "firebase/app";
 import { getStorage, ref, listAll, getDownloadURL} from "firebase/storage";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { createFile } from "./helpers";
+import { getFirestore } from "firebase/firestore";
+import {useAuthState} from "react-firebase-hooks/auth"
+import {useCollectionData} from "react-firebase-hooks/firestore"
+
 
 
 const firebaseConfig = {
@@ -15,10 +19,12 @@ const firebaseConfig = {
 
 };
 
+
 const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app);
 const provider = new GoogleAuthProvider();
 export const auth = getAuth(app);
+export const firestore = getFirestore(app);
 
 export const allItems = (path) =>{
   const storage = getStorage();
@@ -26,9 +32,6 @@ export const allItems = (path) =>{
  
   listAll(listRef)
     .then((res) => {
-     
-      res.prefixes.forEach((folderRef) => {
-      });
       res.items.forEach(async (itemRef) => {
           const name = itemRef.name ;
           const path = itemRef.fullPath ;
@@ -52,6 +55,8 @@ export const signInWithGoogle = () =>{
          localStorage.setItem("name" , name);
          localStorage.setItem("email" , email);
          localStorage.setItem("profilepic" , profilepic);
+         location.reload();
+
   });
 
 }

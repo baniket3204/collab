@@ -42,10 +42,13 @@ export const Uploader = () => {
   }
 
   return (
-    <div>
-        <input type="file" onChange={handleChange} accept='application/pdf'/>
-        <button onClick={handleUpload}>Upload to Firebase</button>
-        <p>{percent} % done</p>
+    <div style={{display: 'flex', gap: '2rem', alignItems: 'center'}}>
+        <label className='input'>
+            <input type="file" onChange={handleChange} accept='application/pdf' style={{display: 'none'}}/>
+            <span>Select File</span>
+        </label>
+        <button onClick={handleUpload} style={{cursor : "pointer"}}>Upload to Firebase</button>
+        <p><h3>{percent} % DONE</h3></p>
     </div>
   )
 }
